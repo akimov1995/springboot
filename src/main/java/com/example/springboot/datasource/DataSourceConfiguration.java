@@ -36,11 +36,6 @@ public class DataSourceConfiguration {
     @ConditionalOnProperty(name = "spring.profiles.active", havingValue = "local")
     protected DataSource getDataSourceLocalProfile() {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
-        /*dataSourceBuilder.driverClassName("org.h2.Driver");
-        dataSourceBuilder.url("jdbc:h2:mem:allNewDb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE");
-        dataSourceBuilder.username("sa");
-        dataSourceBuilder.password("123");
-         */
         dataSourceBuilder.driverClassName(env.getProperty("h2.db.className"));
         dataSourceBuilder.url(env.getProperty("h2.db.url"));
         dataSourceBuilder.username(env.getProperty("h2.db.userName"));
